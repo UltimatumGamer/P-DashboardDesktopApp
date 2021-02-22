@@ -56,6 +56,7 @@ const createWindow = async () => {
   const win = new BrowserWindow({
     width: 800,
     height: 600,
+    icon: __dirname + '/assets/app/icon/icon.ico',
   });
 
   // and load the index.html of the app.
