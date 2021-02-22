@@ -17,6 +17,34 @@ const store = new Store({
   }
 });
 
+/*
+https://www.electronjs.org/docs/tutorial/updates
+https://github.com/vercel/hazel
+*/
+const server = 'https://p-dashboarddesktopapp.vercel.app/'
+const url = `${server}/update/${process.platform}/${app.getVersion()}`
+
+autoUpdater.setFeedURL({ url })
+
+setInterval(() => {
+  autoUpdater.checkForUpdates()
+}, 10000)
+
+autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
+  const dialogOpts = {
+    type: 'info',
+    buttons: ['Restart', 'Later'],
+    title: 'Application Update',
+    message: process.platform === 'win32' ? releaseNotes : releaseName,
+    detail: 'A new version has been downloaded. Starte die Anwendung neu, um die Updates anzuwenden.'
+  }
+
+  dialog.showMessageBox(dialogOpts).then((returnValue) => {
+    if (returnValue.response === 0) autoUpdater.quitAndInstall()
+  })
+})
+
+
 const createWindow = async () => {
   // Create the browser window.
   const win = new BrowserWindow({
@@ -42,7 +70,7 @@ const createWindow = async () => {
   })
 
   // Open the DevTools.
-  win.webContents.openDevTools();
+  //win.webContents.openDevTools();
 };
 
 // This method will be called when Electron has finished
