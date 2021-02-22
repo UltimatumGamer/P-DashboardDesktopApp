@@ -6,6 +6,17 @@ const Store = require('./Store');
 if (require('electron-squirrel-startup')) { // eslint-disable-line global-require
   app.quit();
 }
+console.log(process.execPath)
+app.setUserTasks([
+  {
+    program: process.execPath,
+    arguments: '--new-window',
+    iconPath: process.execPath,
+    iconIndex: 0,
+    title: 'Dashboard.Pedda.Digital',
+    description: 'Simple Dashboard with many features'
+  }
+])
 
 
 // First instantiate the class
@@ -27,17 +38,17 @@ const url = `${server}/update/${process.platform}/${app.getVersion()}`
 
 autoUpdater.setFeedURL({ url })
 
-setInterval(() => {
+let updater = setInterval(() => {
   autoUpdater.checkForUpdates()
 }, 10000)
 
 autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
   const dialogOpts = {
     type: 'info',
-    buttons: ['Restart', 'Later'],
+    buttons: ['Neustarten', 'Später'],
     title: 'Application Update',
     message: process.platform === 'win32' ? releaseNotes : releaseName,
-    detail: 'A new version has been downloaded. Starte die Anwendung neu, um die Updates anzuwenden.'
+    detail: 'Eine neue Version wurde heruntergeladen. Starte die Anwendung neu, um die Updates anzuwenden.'
   }
 
   dialog.showMessageBox(dialogOpts).then((returnValue) => {
@@ -46,6 +57,7 @@ autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
 })
 
 autoUpdater.on('error', message => {
+  clearInterval(updater)
   console.error('There was a problem updating the application')
   console.error(message)
 })
@@ -54,6 +66,9 @@ autoUpdater.on('error', message => {
 const createWindow = async () => {
   // Create the browser window.
   const win = new BrowserWindow({
+    titleBarStyle: 'hidden',
+    minWidth: 400,
+    minHeight: 400,
     width: 800,
     height: 600,
     icon: __dirname + '/assets/app/icon/icon.ico',

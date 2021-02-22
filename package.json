@@ -2,14 +2,21 @@
   "name": "p-dashboard-app",
   "productName": "Dashboard-App",
   "version": "1.0.3",
+  "icon": "./src/assets/app/icon/icon.ico",
   "description": "My Electron application description",
   "main": "src/index.js",
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
-    "make": "electron-forge make",
+    "make": "electron-forge make --icon=./src/assets/app/icon/icon.ico",
     "publish": "electron-forge publish",
     "lint": "echo \"No linting configured\""
+  },
+  "electronPackagerConfig": {
+    "icon": "./src/assets/app/icon/icon.ico"
+  },
+  "packagerConfig": {
+    "icon": "./src/assets/app/icon/icon.ico"
   },
   "keywords": [],
   "author": {
@@ -17,42 +24,11 @@
     "email": "UltimatumGamer1@googlemail.com"
   },
   "license": "MIT",
+
   "config": {
-    "forge": {
-      "publishers": [{
-          "name": "@electron-forge/publisher-github",
-          "config": {
-            "repository": {
-              "owner": "UltimatumGamer",
-              "name": "P-DashboardDesktopApp"
-            }
-          }
-      }],
-      "packagerConfig": {},
-      "makers": [
-        {
-          "name": "@electron-forge/maker-squirrel",
-          "config": {
-            "name": "p-dashboard-app"
-          }
-        },
-        {
-          "name": "@electron-forge/maker-zip",
-          "platforms": [
-            "darwin"
-          ]
-        },
-        {
-          "name": "@electron-forge/maker-deb",
-          "config": {}
-        },
-        {
-          "name": "@electron-forge/maker-rpm",
-          "config": {}
-        }
-      ]
-    }
+    "forge": "./forge.config.js"
   },
+
   "dependencies": {
     "electron-squirrel-startup": "^1.0.0"
   },
