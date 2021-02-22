@@ -1,7 +1,7 @@
 {
   "name": "p-dashboard-app",
   "productName": "Dashboard-App",
-  "version": "1.0.3",
+  "version": "1.0.7",
   "icon": "./src/assets/app/icon/icon.ico",
   "description": "My Electron application description",
   "main": "src/index.js",
