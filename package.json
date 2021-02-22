@@ -1,7 +1,7 @@
 {
-  "name": "my-app",
-  "productName": "my-app",
-  "version": "1.0.1",
+  "name": "p-dashboard-app",
+  "productName": "Dashboard-App",
+  "version": "1.0.2",
   "description": "My Electron application description",
   "main": "src/index.js",
   "scripts": {
@@ -33,7 +33,7 @@
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "my_app"
+            "name": "p-dashboard-app"
           }
         },
         {

@@ -21,8 +21,9 @@ const store = new Store({
 https://www.electronjs.org/docs/tutorial/updates
 https://github.com/vercel/hazel
 */
-const server = 'https://p-dashboarddesktopapp.vercel.app/'
+const server = 'https://p-dashboarddesktopapp.vercel.app'
 const url = `${server}/update/${process.platform}/${app.getVersion()}`
+
 
 autoUpdater.setFeedURL({ url })
 
@@ -42,6 +43,11 @@ autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
   dialog.showMessageBox(dialogOpts).then((returnValue) => {
     if (returnValue.response === 0) autoUpdater.quitAndInstall()
   })
+})
+
+autoUpdater.on('error', message => {
+  console.error('There was a problem updating the application')
+  console.error(message)
 })
 
 
