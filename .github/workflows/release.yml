@@ -16,8 +16,6 @@ jobs:
     - name: install dependencies
       run: npm install
     - name: publish
-      env:
-        GITHUB_TOKEN: 4c1e713f496d277ec0d17ac1c5d363b610810641
       run: npm run publish
 
   publish_on_mac:
@@ -30,8 +28,6 @@ jobs:
     - name: install dependencies
       run: npm install
     - name: publish
-      env:
-        GITHUB_TOKEN: 4c1e713f496d277ec0d17ac1c5d363b610810641
       run: npm run publish
 
   publish_on_win:
@@ -44,6 +40,4 @@ jobs:
     - name: install dependencies
       run: npm install
     - name: publish
-      env:
-        GITHUB_TOKEN: 4c1e713f496d277ec0d17ac1c5d363b610810641
       run: npm run publish
