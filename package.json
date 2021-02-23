@@ -1,9 +1,9 @@
 {
   "name": "p-dashboard-app",
   "productName": "Dashboard-App",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "icon": "./src/assets/app/icon/icon.ico",
-  "description": "My Electron application description",
+  "description": "Small Dashboard App for Desktop",
   "main": "src/index.js",
   "scripts": {
     "start": "electron-forge start",
@@ -24,12 +24,11 @@
     "email": "UltimatumGamer1@googlemail.com"
   },
   "license": "MIT",
-
   "config": {
     "forge": "./forge.config.js"
   },
-
   "dependencies": {
+    "electron-context-menu": "^2.5.0",
     "electron-squirrel-startup": "^1.0.0"
   },
   "devDependencies": {
