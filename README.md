@@ -1,5 +1,5 @@
 # P-DashboardDesktopApp
-[![time tracker](https://wakatime.com/badge/github/UltimatumGamer/P-DashboardDesktopApp.svg)](https://wakatime.com/badge/github/UltimatumGamer/P-DashboardDesktopApp) [![Release](https://github.com/UltimatumGamer/P-DashboardDesktopApp/actions/workflows/release.yml/badge.svg)](https://github.com/UltimatumGamer/P-DashboardDesktopApp/actions/workflows/release.yml)
+[![time tracker](https://wakatime.com/badge/github/UltimatumGamer/P-DashboardDesktopApp.svg)](https://wakatime.com/badge/github/UltimatumGamer/P-DashboardDesktopApp) [![Release](https://github.com/UltimatumGamer/P-DashboardDesktopApp/actions/workflows/release.yml/badge.svg)](https://github.com/UltimatumGamer/P-DashboardDesktopApp/actions/workflows/release.yml) ![GitHub release (latest by date)](https://img.shields.io/github/v/release/UltimatumGamer/P-DashboardDesktopApp)
 
 - This App is a small Project to test out ElectronJs
 - Currently the App only shows the Main-Dashboard
